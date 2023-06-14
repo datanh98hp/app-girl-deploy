@@ -1,0 +1,3860 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://127.0.0.1:8000/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Auth</h1>
+<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
+<h2>Đăng ký</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/register?name=itaque&amp;email=et&amp;password=consequatur&amp;password_confirmation=magni" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/register"
+);
+
+let params = {
+    "name": "itaque",
+    "email": "et",
+    "password": "consequatur",
+    "password_confirmation": "magni",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Đăng ký thành công! Vui lòng kiểm tra email của bạn để xác thực tài khoản!",
+    "data": {
+        "name": "cong trinh",
+        "email": "congtrinh17111992@gmail.com",
+        "password": "11111111",
+        "status": 0,
+        "otp": 1619271832
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/register</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>password_confirmation</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
+<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<h2>Đăng nhập</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/login?email=pariatur&amp;password=sed" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/login"
+);
+
+let params = {
+    "email": "pariatur",
+    "password": "sed",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxODUwMTk0NiwiZXhwIjoxNjE4NTA1NTQ2LCJuYmYiOjE2MTg1MDE5NDYsImp0aSI6IklmNTZVQ1hqanNXR01NaFoiLCJzdWIiOjEsInBydiI6IjE4ZjM0M2FmNDdiNDMxZTk4OGJkYzNjNzcwMDRkNzUwMTFiMDBhODcifQ.-I6yC1vZW10Bg2SllTMkcAgNb3ur2JwbkjQh7mZMCqU",
+    "msg": "Login successfully!"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/login</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<h1>Bank</h1>
+<!-- START_a2b22a9c4347ca1d8df80cf9ea8ffc4d -->
+<h2>Danh sách thẻ ngân hàng</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/bank" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bank"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List bank",
+    "data": [
+        {
+            "id": 1,
+            "name": "hoir casi",
+            "number": "23131231321",
+            "branch": "Hà Nội",
+            "status": 1,
+            "created_at": "2021-04-14 13:08:58",
+            "updated_at": "2021-04-14 13:08:58"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/bank</code></p>
+<!-- END_a2b22a9c4347ca1d8df80cf9ea8ffc4d -->
+<!-- START_eb161115fa8aaf05d3009779f79cc56d -->
+<h2>Thêm mới</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/bank/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bank/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add bank successfully!",
+    "data": {
+        "name": "hoir casi",
+        "number": "23131231321",
+        "branch": "Hà Nội",
+        "status": "1",
+        "updated_at": "2021-04-14 13:08:58",
+        "created_at": "2021-04-14 13:08:58",
+        "id": 1
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/bank/add</code></p>
+<!-- END_eb161115fa8aaf05d3009779f79cc56d -->
+<!-- START_8b2c43e8be746f368050f5e6472cb82e -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/bank/update/quis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bank/update/quis"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit bank: hoir casi",
+    "data": {
+        "id": 1,
+        "name": "hoir casi",
+        "number": "23131231321",
+        "branch": "Hà Nội",
+        "status": 1,
+        "created_at": "2021-04-14 13:08:58",
+        "updated_at": "2021-04-14 13:08:58"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/bank/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8b2c43e8be746f368050f5e6472cb82e -->
+<!-- START_aa29b5d6ba91285a09885266e72617ed -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/bank/update/quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bank/update/quia"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update bank successfully!",
+    "data": {
+        "id": 1,
+        "name": "hoir casi update",
+        "number": "23131231321",
+        "branch": "Hà Nội",
+        "status": "1",
+        "created_at": "2021-04-14 13:08:58",
+        "updated_at": "2021-04-14 13:15:50"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/bank/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_aa29b5d6ba91285a09885266e72617ed -->
+<!-- START_3c8d5d3020e4492b87e6978dcb29e72b -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/bank/delete/quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bank/delete/quia"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove bank successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/bank/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3c8d5d3020e4492b87e6978dcb29e72b -->
+<h1>Banner</h1>
+<!-- START_400fb4764df1b01a1c10c5790a4e4f40 -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/banners" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/banners"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List banner",
+    "data": [
+        {
+            "id": 1,
+            "name": "banner 1",
+            "image": "\/storage\/banners\/bFzSybpoGHbIrXGMWTwxZTvYnBWhf2Vbi2MN5FrO.jpg",
+            "created_at": "2021-04-14 13:19:58",
+            "updated_at": "2021-04-14 13:19:58"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/banners</code></p>
+<!-- END_400fb4764df1b01a1c10c5790a4e4f40 -->
+<!-- START_00bed48f351db5c6ba99f09840153d4c -->
+<h2>Thêm</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/banners/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/banners/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add banner successfully!",
+    "data": {
+        "image": "\/storage\/banners\/bFzSybpoGHbIrXGMWTwxZTvYnBWhf2Vbi2MN5FrO.jpg",
+        "name": "banner 1",
+        "updated_at": "2021-04-14 13:19:58",
+        "created_at": "2021-04-14 13:19:58",
+        "id": 1
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/banners/add</code></p>
+<!-- END_00bed48f351db5c6ba99f09840153d4c -->
+<!-- START_0970d943171eae7c5353d3a868d0bb6e -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/banners/delete/quo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/banners/delete/quo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove banner successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/banners/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0970d943171eae7c5353d3a868d0bb6e -->
+<h1>Bài viết</h1>
+<!-- START_0bfd90e643e49117746d270f35d4851b -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/post" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/post"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List post",
+    "data": [
+        {
+            "id": 1,
+            "name": "Xe o t123aaaaaaaaq",
+            "slug": "xe-o-to-1",
+            "image": "\/storage\/posts\/HopF6CLpBhYl79eYvWSoZ4sf1FRqarmmO0DFHuJl.jpg",
+            "description": "description",
+            "content": "content",
+            "views": 1,
+            "status": 1,
+            "created_at": "2021-04-14 05:36:35",
+            "updated_at": "2021-04-14 05:36:35",
+            "categories": [
+                {
+                    "id": 2,
+                    "name": "Xe o t123",
+                    "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+                    "status": 1,
+                    "created_at": "2021-04-14 05:45:04",
+                    "updated_at": "2021-04-14 05:45:04",
+                    "type": 1,
+                    "pivot": {
+                        "post_id": 1,
+                        "category_id": 2
+                    }
+                }
+            ]
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/post</code></p>
+<!-- END_0bfd90e643e49117746d270f35d4851b -->
+<!-- START_de43641373f8a38d069307c378c4f09c -->
+<h2>Thêm mới</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/post/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/post/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add post successfully!",
+    "data": {
+        "image": "\/storage\/posts\/IhlEhEA2jRboHbViKp3y8w3MSmgeSpiZcattlXZe.jpg",
+        "name": "Xe o t123aaaas",
+        "slug": "xe-o-to-2",
+        "description": "description",
+        "content": "content",
+        "views": "1",
+        "status": "1",
+        "updated_at": "2021-04-14 14:58:58",
+        "created_at": "2021-04-14 14:58:58",
+        "id": 3
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/post/add</code></p>
+<!-- END_de43641373f8a38d069307c378c4f09c -->
+<!-- START_d802222bbca6b40815d1d75574366d33 -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/post/update/ullam" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/post/update/ullam"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update post successfully!",
+    "data": {
+        "id": 1,
+        "name": "Xe tay gaa",
+        "slug": "tay-ga",
+        "image": "\/storage\/posts\/L7JSkW5wj1mWbcUJOOHU8gAYgwhj4xfK8X5FgaYT.jpg",
+        "description": "moo tar",
+        "content": "noi dung",
+        "views": "12391230",
+        "status": "1",
+        "created_at": "2021-04-14 05:36:35",
+        "updated_at": "2021-04-14 15:01:00"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/post/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d802222bbca6b40815d1d75574366d33 -->
+<!-- START_675741f4578e95fdefe714f1ab935d8a -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/post/delete/cumque" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/post/delete/cumque"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove post successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/post/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_675741f4578e95fdefe714f1ab935d8a -->
+<h1>Chuyên mục</h1>
+<!-- START_db20564ba266cd451caac114b3eac8ab -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/category" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/category"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/category</code></p>
+<!-- END_db20564ba266cd451caac114b3eac8ab -->
+<!-- START_6a64bc9a9a2626c24d588ed934b765b8 -->
+<h2>Thêm mới</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/category/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/category/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add category successfully!",
+    "data": {
+        "image": "\/storage\/categories\/pDE445tqbD5iDsJxJp3xrLpMMrMJpIjATByeuKCu.jpg",
+        "name": "Xe o to",
+        "status": "1",
+        "type": "1",
+        "updated_at": "2021-04-14 13:44:36",
+        "created_at": "2021-04-14 13:44:36",
+        "id": 5
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/category/add</code></p>
+<!-- END_6a64bc9a9a2626c24d588ed934b765b8 -->
+<!-- START_b706ef7a9fae8af17f127e52e13329c9 -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/category/update/quis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/category/update/quis"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit category: Xe o to",
+    "data": {
+        "id": 5,
+        "name": "Xe o to",
+        "image": "\/storage\/categories\/pDE445tqbD5iDsJxJp3xrLpMMrMJpIjATByeuKCu.jpg",
+        "status": 1,
+        "created_at": "2021-04-14 13:44:36",
+        "updated_at": "2021-04-14 13:44:36",
+        "type": 1,
+        "brands": [
+            {
+                "id": 2,
+                "name": "toyota",
+                "image": "\/storage\/brands\/BzryU2WXxwMCjgPN1dq9ais0jPdXAhrY2leRq975.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:45:25",
+                "updated_at": "2021-04-14 05:45:25",
+                "pivot": {
+                    "category_id": 5,
+                    "brand_id": 2
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/category/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b706ef7a9fae8af17f127e52e13329c9 -->
+<!-- START_da36143dd3b243033101797857f31371 -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/category/update/hic" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/category/update/hic"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update category successfully!",
+    "data": {
+        "id": 5,
+        "name": "Xe tay gaa",
+        "image": "\/storage\/categories\/ZLwrsHzidu1JktqPsZmpCM0vMip34IW7TOXjo21P.jpg",
+        "status": "1",
+        "created_at": "2021-04-14 13:44:36",
+        "updated_at": "2021-04-14 14:21:20",
+        "type": "2"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/category/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_da36143dd3b243033101797857f31371 -->
+<!-- START_f5f0df53042f0a55c0e8ae793f657d96 -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/category/delete/molestiae" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/category/delete/molestiae"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove category successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/category/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f5f0df53042f0a55c0e8ae793f657d96 -->
+<h1>Liên hệ</h1>
+<!-- START_3d6410776fd7f89f2233e62fa1ce5052 -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/contact" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/contact"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List contact",
+    "data": [
+        {
+            "id": 1,
+            "member_id": 2,
+            "name": "hoir casi",
+            "email": "a@gmail.com",
+            "phone": 123456789,
+            "content": "content",
+            "status": 1,
+            "created_at": "2021-04-14 14:32:09",
+            "updated_at": "2021-04-14 14:32:09"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/contact</code></p>
+<!-- END_3d6410776fd7f89f2233e62fa1ce5052 -->
+<!-- START_f1303120d8c71d5cf415ea64e0ee9adc -->
+<h2>Thêm mới</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/contact/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/contact/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List contact",
+    "data": [
+        {
+            "id": 1,
+            "member_id": 2,
+            "name": "hoir casi",
+            "email": "a@gmail.com",
+            "phone": 123456789,
+            "content": "content",
+            "status": 1,
+            "created_at": "2021-04-14 14:32:09",
+            "updated_at": "2021-04-14 14:32:09"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/contact/add</code></p>
+<!-- END_f1303120d8c71d5cf415ea64e0ee9adc -->
+<!-- START_48b89fb136d539fbcb976c7ab6cb0df5 -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/contact/update/eligendi" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/contact/update/eligendi"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit contact: hoir casi",
+    "data": {
+        "id": 1,
+        "member_id": 2,
+        "name": "hoir casi",
+        "email": "a@gmail.com",
+        "phone": 123456789,
+        "content": "content",
+        "status": 1,
+        "created_at": "2021-04-14 14:32:09",
+        "updated_at": "2021-04-14 14:32:09",
+        "member": {
+            "id": 2,
+            "name": "cong trinh",
+            "avatar": null,
+            "email": "congtrinh1711199@gmail.com",
+            "cover_image": null,
+            "description": null,
+            "address": null,
+            "email_verified_at": null,
+            "status": 1,
+            "created_at": "2021-04-13 17:08:21",
+            "updated_at": "2021-04-13 17:08:21"
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/contact/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_48b89fb136d539fbcb976c7ab6cb0df5 -->
+<!-- START_4c19fafebdaa8890391700c4276699e2 -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/contact/update/non" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/contact/update/non"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update contact successfully!",
+    "data": {
+        "id": 1,
+        "member_id": "2",
+        "name": "hoir casi update",
+        "email": "a@gmail.com",
+        "phone": "123456789",
+        "content": "content",
+        "status": "1",
+        "created_at": "2021-04-14 14:32:09",
+        "updated_at": "2021-04-14 14:36:20"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/contact/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4c19fafebdaa8890391700c4276699e2 -->
+<!-- START_150d94039a789144409dd9b778f3adec -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/contact/delete/et" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/contact/delete/et"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove contact successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/contact/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_150d94039a789144409dd9b778f3adec -->
+<h1>Product</h1>
+<!-- START_dc538d69a8586a7a3c36d4393cee42e6 -->
+<h2>Danh sách products</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/product" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/product"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List product",
+    "data": [
+        {
+            "id": 1,
+            "code": "123123",
+            "name": "Xe o t123aaaaaaaaq",
+            "slug": "xe-o-to-1",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/8yZeqjdUq9I0UNLaQxs7cyBqTeRBl6NuECXplMqk.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/AZlrbzjRkmAYa9v5hGKmFgYc2kvRvFw6lPFtsMrm.jpg\",\"\\\/storage\\\/products\\\/7Xmc3ig4PSf8dDyr3ZkjtsuF7klm8dSEKsl4qQSf.jpg\"]",
+            "price": 100000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 05:39:36",
+            "updated_at": "2021-04-14 05:39:36"
+        },
+        {
+            "id": 2,
+            "code": "123123",
+            "name": "Xe o to ngon",
+            "slug": "xe-o-to-2",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/qJEJUKnaPYh9urhTHkhwzPlWdtnDfoQgghXjoXpp.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/gdUi1VzDkAxArwVRN1TYhoPxHvxw7PejM80CY3Rx.jpg\",\"\\\/storage\\\/products\\\/9YpYHPebNX8azYgsRJO0DwlKdGWz8kKI6ytWJxT2.jpg\"]",
+            "price": 100000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 06:01:18",
+            "updated_at": "2021-04-14 06:01:18"
+        },
+        {
+            "id": 3,
+            "code": "123123",
+            "name": "Xe o to ngon",
+            "slug": "xe-o-to-3",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/MOGyvpWg7CpRS51P1uMhiWsVuR0pdGo4vkCewrwa.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/B9hWM127FgXYH6sCMRoAWjrKcf8pKXDp6MXqlhNS.jpg\",\"\\\/storage\\\/products\\\/MxsHZM0w168KlgPHHb4PFNCT7NYqyNhHip4yoQFG.jpg\"]",
+            "price": 200000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 06:03:06",
+            "updated_at": "2021-04-14 06:03:06"
+        }
+    ],
+    "brands": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/product</code></p>
+<!-- END_dc538d69a8586a7a3c36d4393cee42e6 -->
+<!-- START_7baafa29f0adc5c6f9251b80fada1967 -->
+<h2>Thêm mới product</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/product/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/product/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add product successfully!",
+    "data": {
+        "image": "\/storage\/products\/F6aSl5EqM94CMcw4pJWCtnYH47sRBnBDhyj3Jr48.jpg",
+        "images": "[\"\\\/storage\\\/products\\\/fKt1hXBu8bMuMTGI7GUNbF8PDOctaSkyPd5OHEb2.jpg\",\"\\\/storage\\\/products\\\/VSr7cnSASCBX0hYqhpjYSLZwq1nF1WUnPavJ1c3g.jpg\"]",
+        "name": "Xe o to ngon -1",
+        "slug": "xe-o-to-3-1",
+        "code": "123123",
+        "description": "description",
+        "content": "content",
+        "price": "200000000",
+        "brand_id": "1",
+        "status": "1",
+        "updated_at": "2021-04-14 11:41:07",
+        "created_at": "2021-04-14 11:41:07",
+        "id": 4
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product/add</code></p>
+<!-- END_7baafa29f0adc5c6f9251b80fada1967 -->
+<!-- START_530239e65bb57227ade133bc07068e40 -->
+<h2>Chi tiết product</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/product/update/exercitationem" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/product/update/exercitationem"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit product: Xe o to ngon",
+    "data": {
+        "id": 3,
+        "code": "123123",
+        "name": "Xe o to ngon",
+        "slug": "xe-o-to-3",
+        "description": "description",
+        "content": "content",
+        "image": "\/storage\/products\/MOGyvpWg7CpRS51P1uMhiWsVuR0pdGo4vkCewrwa.jpg",
+        "images": "[\"\\\/storage\\\/products\\\/B9hWM127FgXYH6sCMRoAWjrKcf8pKXDp6MXqlhNS.jpg\",\"\\\/storage\\\/products\\\/MxsHZM0w168KlgPHHb4PFNCT7NYqyNhHip4yoQFG.jpg\"]",
+        "price": 200000000,
+        "brand_id": 1,
+        "status": 1,
+        "created_at": "2021-04-14 06:03:06",
+        "updated_at": "2021-04-14 06:03:06",
+        "categories": [
+            {
+                "id": 1,
+                "name": "Xe o t123aaaaaaaa",
+                "image": "\/storage\/categories\/HhLM28z8FfRmnV5YFiwcSAs9SkYrraonUwKxPdtE.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:40:32",
+                "updated_at": "2021-04-14 05:40:32",
+                "type": 1,
+                "pivot": {
+                    "product_id": 3,
+                    "category_id": 1
+                }
+            }
+        ],
+        "brand": {
+            "id": 1,
+            "name": "toyotasaa",
+            "image": "\/storage\/brands\/jPAZpGgykm3yEx8pme6NeMu5lHWZe0xF3YCuwtJY.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:40:17",
+            "updated_at": "2021-04-14 05:40:17"
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/product/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>id của product</td>
+</tr>
+</tbody>
+</table>
+<!-- END_530239e65bb57227ade133bc07068e40 -->
+<!-- START_ed3dda8a575f7bd63c23d7dd3c02844f -->
+<h2>Chỉnh sửa product</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/product/update/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/product/update/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update product successfully!",
+    "data": {
+        "id": 3,
+        "code": "123456",
+        "name": "Xe tay gaa",
+        "slug": "tay-ga",
+        "description": "moo tar",
+        "content": "noi dung",
+        "image": "\/storage\/products\/5njvg79Y6glkaKJE22B4Iq9KGxG4wImsy1FfFBn5.jpg",
+        "images": "[\"\\\/storage\\\/products\\\/6zYS0UlXXDG9WpJCP42YnkmWZJSBD6R8fhSFJ5sa.jpg\"]",
+        "price": "12391230",
+        "brand_id": "10",
+        "status": "1",
+        "created_at": "2021-04-14 06:03:06",
+        "updated_at": "2021-04-14 11:48:18"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product/update/{id}</code></p>
+<!-- END_ed3dda8a575f7bd63c23d7dd3c02844f -->
+<!-- START_5c9440f83448d1991232df8c8e567d6e -->
+<h2>Xóa product</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/product/delete/libero" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/product/delete/libero"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove product successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>Id product</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5c9440f83448d1991232df8c8e567d6e -->
+<h1>Thông báo</h1>
+<!-- START_4fb25366280aa776535df05d0448a156 -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/notification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/notification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List notification",
+    "data": [
+        {
+            "id": 5,
+            "post_id": null,
+            "product_id": 4,
+            "status": 1,
+            "created_at": "2021-04-14 11:41:07",
+            "updated_at": "2021-04-14 11:41:07",
+            "product": {
+                "id": 4,
+                "code": "123123",
+                "name": "Xe o to ngon -1",
+                "slug": "xe-o-to-3-1",
+                "description": "description",
+                "content": "content",
+                "image": "\/storage\/products\/F6aSl5EqM94CMcw4pJWCtnYH47sRBnBDhyj3Jr48.jpg",
+                "images": "[\"\\\/storage\\\/products\\\/fKt1hXBu8bMuMTGI7GUNbF8PDOctaSkyPd5OHEb2.jpg\",\"\\\/storage\\\/products\\\/VSr7cnSASCBX0hYqhpjYSLZwq1nF1WUnPavJ1c3g.jpg\"]",
+                "price": 200000000,
+                "brand_id": 1,
+                "status": 1,
+                "created_at": "2021-04-14 11:41:07",
+                "updated_at": "2021-04-14 11:41:07"
+            },
+            "post": null
+        },
+        {
+            "id": 4,
+            "post_id": null,
+            "product_id": 3,
+            "status": 1,
+            "created_at": "2021-04-14 06:03:06",
+            "updated_at": "2021-04-14 06:03:06",
+            "product": null,
+            "post": null
+        },
+        {
+            "id": 3,
+            "post_id": null,
+            "product_id": 2,
+            "status": 1,
+            "created_at": "2021-04-14 06:01:18",
+            "updated_at": "2021-04-14 06:01:18",
+            "product": {
+                "id": 2,
+                "code": "123123",
+                "name": "Xe o to ngon",
+                "slug": "xe-o-to-2",
+                "description": "description",
+                "content": "content",
+                "image": "\/storage\/products\/qJEJUKnaPYh9urhTHkhwzPlWdtnDfoQgghXjoXpp.jpg",
+                "images": "[\"\\\/storage\\\/products\\\/gdUi1VzDkAxArwVRN1TYhoPxHvxw7PejM80CY3Rx.jpg\",\"\\\/storage\\\/products\\\/9YpYHPebNX8azYgsRJO0DwlKdGWz8kKI6ytWJxT2.jpg\"]",
+                "price": 100000000,
+                "brand_id": 1,
+                "status": 1,
+                "created_at": "2021-04-14 06:01:18",
+                "updated_at": "2021-04-14 06:01:18"
+            },
+            "post": null
+        },
+        {
+            "id": 2,
+            "post_id": null,
+            "product_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 05:39:36",
+            "updated_at": "2021-04-14 05:39:36",
+            "product": {
+                "id": 1,
+                "code": "123123",
+                "name": "Xe o t123aaaaaaaaq",
+                "slug": "xe-o-to-1",
+                "description": "description",
+                "content": "content",
+                "image": "\/storage\/products\/8yZeqjdUq9I0UNLaQxs7cyBqTeRBl6NuECXplMqk.jpg",
+                "images": "[\"\\\/storage\\\/products\\\/AZlrbzjRkmAYa9v5hGKmFgYc2kvRvFw6lPFtsMrm.jpg\",\"\\\/storage\\\/products\\\/7Xmc3ig4PSf8dDyr3ZkjtsuF7klm8dSEKsl4qQSf.jpg\"]",
+                "price": 100000000,
+                "brand_id": 1,
+                "status": 1,
+                "created_at": "2021-04-14 05:39:36",
+                "updated_at": "2021-04-14 05:39:36"
+            },
+            "post": null
+        },
+        {
+            "id": 1,
+            "post_id": 1,
+            "product_id": null,
+            "status": 1,
+            "created_at": "2021-04-14 05:36:35",
+            "updated_at": "2021-04-14 05:36:35",
+            "product": null,
+            "post": {
+                "id": 1,
+                "name": "Xe o t123aaaaaaaaq",
+                "slug": "xe-o-to-1",
+                "image": "\/storage\/posts\/HopF6CLpBhYl79eYvWSoZ4sf1FRqarmmO0DFHuJl.jpg",
+                "description": "description",
+                "content": "content",
+                "views": 1,
+                "status": 1,
+                "created_at": "2021-04-14 05:36:35",
+                "updated_at": "2021-04-14 05:36:35"
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/notification</code></p>
+<!-- END_4fb25366280aa776535df05d0448a156 -->
+<!-- START_085a95c32ecaa132828faf40bc0eed7c -->
+<h2>Thêm mới</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/notification/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/notification/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add notification successfully!",
+    "data": {
+        "post_id": "2",
+        "product_id": "1",
+        "status": "1",
+        "updated_at": "2021-04-14 14:43:15",
+        "created_at": "2021-04-14 14:43:15",
+        "id": 6
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/notification/add</code></p>
+<!-- END_085a95c32ecaa132828faf40bc0eed7c -->
+<!-- START_c6afe6d1e8caffa508e6c0f66229aec9 -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/notification/update/est" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/notification/update/est"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit notification",
+    "data": {
+        "id": 1,
+        "post_id": 1,
+        "product_id": null,
+        "status": 1,
+        "created_at": "2021-04-14 05:36:35",
+        "updated_at": "2021-04-14 05:36:35",
+        "product": null,
+        "post": {
+            "id": 1,
+            "name": "Xe o t123aaaaaaaaq",
+            "slug": "xe-o-to-1",
+            "image": "\/storage\/posts\/HopF6CLpBhYl79eYvWSoZ4sf1FRqarmmO0DFHuJl.jpg",
+            "description": "description",
+            "content": "content",
+            "views": 1,
+            "status": 1,
+            "created_at": "2021-04-14 05:36:35",
+            "updated_at": "2021-04-14 05:36:35"
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/notification/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c6afe6d1e8caffa508e6c0f66229aec9 -->
+<!-- START_85f2768322c18e06d4979aa3b12041ce -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/notification/update/odio" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/notification/update/odio"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update notification successfully!",
+    "data": {
+        "id": 1,
+        "post_id": "1",
+        "product_id": "2",
+        "status": "1",
+        "created_at": "2021-04-14 05:36:35",
+        "updated_at": "2021-04-14 14:45:28"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/notification/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_85f2768322c18e06d4979aa3b12041ce -->
+<!-- START_e2cc922642d4a83670654e79b3b54367 -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/notification/delete/quam" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/notification/delete/quam"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove notification successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/notification/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e2cc922642d4a83670654e79b3b54367 -->
+<h1>Thương hiệu</h1>
+<!-- START_ec5d69c57dff08a10fad5f9cf208ad9f -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/brand" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/brand"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List brand",
+    "data": [
+        {
+            "id": 3,
+            "name": "toyota bad",
+            "image": "\/storage\/brands\/mBqSbnq5JYuKKYO3WRVvqhcxmyjPeFPUttZ4bVuP.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 06:00:48",
+            "updated_at": "2021-04-14 06:00:48"
+        },
+        {
+            "id": 2,
+            "name": "toyota",
+            "image": "\/storage\/brands\/BzryU2WXxwMCjgPN1dq9ais0jPdXAhrY2leRq975.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:25",
+            "updated_at": "2021-04-14 05:45:25"
+        },
+        {
+            "id": 1,
+            "name": "toyotasaa",
+            "image": "\/storage\/brands\/jPAZpGgykm3yEx8pme6NeMu5lHWZe0xF3YCuwtJY.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:40:17",
+            "updated_at": "2021-04-14 05:40:17"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/brand</code></p>
+<!-- END_ec5d69c57dff08a10fad5f9cf208ad9f -->
+<!-- START_64b77c7d24907f8badb486848cc3e240 -->
+<h2>Thêm</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/brand/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/brand/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add brand successfully!",
+    "data": {
+        "image": "\/storage\/brands\/p2EzeIykokmUpxtMwxJ56h9K24FhOuRQAGBAc6VU.jpg",
+        "name": "toyota bad",
+        "updated_at": "2021-04-14 13:27:15",
+        "created_at": "2021-04-14 13:27:15",
+        "id": 4,
+        "categories": [
+            {
+                "id": 2,
+                "name": "Xe o t123",
+                "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:45:04",
+                "updated_at": "2021-04-14 05:45:04",
+                "type": 1,
+                "pivot": {
+                    "brand_id": 4,
+                    "category_id": 2
+                }
+            }
+        ]
+    },
+    "categories": [
+        {
+            "id": 2,
+            "name": "Xe o t123",
+            "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:04",
+            "updated_at": "2021-04-14 05:45:04",
+            "type": 1,
+            "pivot": {
+                "brand_id": 4,
+                "category_id": 2
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/brand/add</code></p>
+<!-- END_64b77c7d24907f8badb486848cc3e240 -->
+<!-- START_3e987c42b60349de96f26f3499e4ab98 -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/brand/update/amet" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/brand/update/amet"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit brand: toyotasaa",
+    "data": {
+        "id": 1,
+        "name": "toyotasaa",
+        "image": "\/storage\/brands\/jPAZpGgykm3yEx8pme6NeMu5lHWZe0xF3YCuwtJY.jpg",
+        "status": 1,
+        "created_at": "2021-04-14 05:40:17",
+        "updated_at": "2021-04-14 05:40:17",
+        "categories": [
+            {
+                "id": 1,
+                "name": "Xe o t123aaaaaaaa",
+                "image": "\/storage\/categories\/HhLM28z8FfRmnV5YFiwcSAs9SkYrraonUwKxPdtE.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:40:32",
+                "updated_at": "2021-04-14 05:40:32",
+                "type": 1,
+                "pivot": {
+                    "brand_id": 1,
+                    "category_id": 1
+                }
+            },
+            {
+                "id": 1,
+                "name": "Xe o t123aaaaaaaa",
+                "image": "\/storage\/categories\/HhLM28z8FfRmnV5YFiwcSAs9SkYrraonUwKxPdtE.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:40:32",
+                "updated_at": "2021-04-14 05:40:32",
+                "type": 1,
+                "pivot": {
+                    "brand_id": 1,
+                    "category_id": 1
+                }
+            },
+            {
+                "id": 2,
+                "name": "Xe o t123",
+                "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:45:04",
+                "updated_at": "2021-04-14 05:45:04",
+                "type": 1,
+                "pivot": {
+                    "brand_id": 1,
+                    "category_id": 2
+                }
+            },
+            {
+                "id": 3,
+                "name": "Xe o to",
+                "image": "\/storage\/categories\/bbzyVRaSk4RjhcojCOFYh2ImM5mU0uSxg3xyZGhf.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 06:00:33",
+                "updated_at": "2021-04-14 06:00:33",
+                "type": 1,
+                "pivot": {
+                    "brand_id": 1,
+                    "category_id": 3
+                }
+            }
+        ]
+    },
+    "categories": [
+        {
+            "id": 1,
+            "name": "Xe o t123aaaaaaaa",
+            "image": "\/storage\/categories\/HhLM28z8FfRmnV5YFiwcSAs9SkYrraonUwKxPdtE.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:40:32",
+            "updated_at": "2021-04-14 05:40:32",
+            "type": 1,
+            "pivot": {
+                "brand_id": 1,
+                "category_id": 1
+            }
+        },
+        {
+            "id": 1,
+            "name": "Xe o t123aaaaaaaa",
+            "image": "\/storage\/categories\/HhLM28z8FfRmnV5YFiwcSAs9SkYrraonUwKxPdtE.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:40:32",
+            "updated_at": "2021-04-14 05:40:32",
+            "type": 1,
+            "pivot": {
+                "brand_id": 1,
+                "category_id": 1
+            }
+        },
+        {
+            "id": 2,
+            "name": "Xe o t123",
+            "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:04",
+            "updated_at": "2021-04-14 05:45:04",
+            "type": 1,
+            "pivot": {
+                "brand_id": 1,
+                "category_id": 2
+            }
+        },
+        {
+            "id": 3,
+            "name": "Xe o to",
+            "image": "\/storage\/categories\/bbzyVRaSk4RjhcojCOFYh2ImM5mU0uSxg3xyZGhf.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 06:00:33",
+            "updated_at": "2021-04-14 06:00:33",
+            "type": 1,
+            "pivot": {
+                "brand_id": 1,
+                "category_id": 3
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/brand/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3e987c42b60349de96f26f3499e4ab98 -->
+<!-- START_6a09d798f3c7b1cc4d132d9978cb4655 -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/brand/update/dolores" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/brand/update/dolores"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update brand successfully!",
+    "data": {
+        "id": 1,
+        "name": "honda 11",
+        "image": "\/storage\/brands\/umABXeXaSUanvCsES0MDEVRRX2z49e5FWkNtohcl.jpg",
+        "status": 1,
+        "created_at": "2021-04-14 05:40:17",
+        "updated_at": "2021-04-14 13:29:38",
+        "categories": [
+            {
+                "id": 2,
+                "name": "Xe o t123",
+                "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:45:04",
+                "updated_at": "2021-04-14 05:45:04",
+                "type": 1,
+                "pivot": {
+                    "brand_id": 1,
+                    "category_id": 2
+                }
+            }
+        ]
+    },
+    "categories": [
+        {
+            "id": 2,
+            "name": "Xe o t123",
+            "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:04",
+            "updated_at": "2021-04-14 05:45:04",
+            "type": 1,
+            "pivot": {
+                "brand_id": 1,
+                "category_id": 2
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/brand/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6a09d798f3c7b1cc4d132d9978cb4655 -->
+<h1>Tin tức</h1>
+<!-- START_6819399fe313ac709e9ef467adf20f02 -->
+<h2>Trang tin tức</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/new" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/new"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Home page",
+    "categories": [
+        {
+            "id": 5,
+            "name": "Xe tay gaa",
+            "image": "\/storage\/categories\/ZLwrsHzidu1JktqPsZmpCM0vMip34IW7TOXjo21P.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 13:44:36",
+            "updated_at": "2021-04-14 14:21:20",
+            "type": 2
+        }
+    ],
+    "post": [
+        {
+            "id": 3,
+            "name": "Xe o t123aaaas",
+            "slug": "xe-o-to-2",
+            "image": "\/storage\/posts\/IhlEhEA2jRboHbViKp3y8w3MSmgeSpiZcattlXZe.jpg",
+            "description": "description",
+            "content": "content",
+            "views": 1,
+            "status": 1,
+            "created_at": "2021-04-14 14:58:58",
+            "updated_at": "2021-04-14 14:58:58"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/new</code></p>
+<!-- END_6819399fe313ac709e9ef467adf20f02 -->
+<!-- START_074527f67f2336085b0fee0606e472d4 -->
+<h2>Tin tức theo chuyên mục</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/new-of-category?category_id=sed" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/new-of-category"
+);
+
+let params = {
+    "category_id": "sed",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Home page",
+    "category": {
+        "id": 2,
+        "name": "Xe o t123",
+        "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+        "status": 1,
+        "created_at": "2021-04-14 05:45:04",
+        "updated_at": "2021-04-14 05:45:04",
+        "type": 1
+    },
+    "post": [
+        {
+            "id": 3,
+            "name": "Xe o t123aaaas",
+            "slug": "xe-o-to-2",
+            "image": "\/storage\/posts\/IhlEhEA2jRboHbViKp3y8w3MSmgeSpiZcattlXZe.jpg",
+            "description": "description",
+            "content": "content",
+            "views": 1,
+            "status": 1,
+            "created_at": "2021-04-14 14:58:58",
+            "updated_at": "2021-04-14 14:58:58",
+            "pivot": {
+                "category_id": 2,
+                "post_id": 3
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/new-of-category</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category_id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_074527f67f2336085b0fee0606e472d4 -->
+<!-- START_fc59faae85ad4637f767def943365e96 -->
+<h2>Chi tiết bài viết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/detail/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/detail/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Chi tiết bài viêt!",
+    "posts": [
+        {
+            "id": 3,
+            "name": "Xe o t123aaaas",
+            "slug": "xe-o-to-2",
+            "image": "\/storage\/posts\/IhlEhEA2jRboHbViKp3y8w3MSmgeSpiZcattlXZe.jpg",
+            "description": "description",
+            "content": "content",
+            "views": 1,
+            "status": 1,
+            "created_at": "2021-04-14 14:58:58",
+            "updated_at": "2021-04-14 14:58:58"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/detail/{slug}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fc59faae85ad4637f767def943365e96 -->
+<h1>Trang</h1>
+<!-- START_68738def297b95bb2e4eb1cf4205a81a -->
+<h2>Danh sách</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/page" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/page"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List page",
+    "data": [
+        {
+            "id": 1,
+            "name": "Liên hệ",
+            "slug": "xe-o-to-1",
+            "content": "content",
+            "status": 1,
+            "created_at": "2021-04-14 14:49:23",
+            "updated_at": "2021-04-14 14:49:23"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/page</code></p>
+<!-- END_68738def297b95bb2e4eb1cf4205a81a -->
+<!-- START_a24673144b87141b9edd76416be82c7d -->
+<h2>Thêm mới</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/page/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/page/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Add page successfully!",
+    "data": {
+        "name": "Liên hệ",
+        "slug": "xe-o-to-1",
+        "content": "content",
+        "status": "1",
+        "updated_at": "2021-04-14 14:49:23",
+        "created_at": "2021-04-14 14:49:23",
+        "id": 1
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/page/add</code></p>
+<!-- END_a24673144b87141b9edd76416be82c7d -->
+<!-- START_2d00ab3ee0d61a076244142015d8e2eb -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/page/update/nam" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/page/update/nam"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit page: Liên hệ",
+    "data": {
+        "id": 1,
+        "name": "Liên hệ",
+        "slug": "xe-o-to-1",
+        "content": "content",
+        "status": 1,
+        "created_at": "2021-04-14 14:49:23",
+        "updated_at": "2021-04-14 14:49:23"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/page/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2d00ab3ee0d61a076244142015d8e2eb -->
+<!-- START_a4be3cb59badb10e9ebfc4450d247974 -->
+<h2>Chỉnh sửa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/page/update/et" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/page/update/et"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Update page successfully!",
+    "data": {
+        "id": 1,
+        "name": "Xe tay gaa",
+        "slug": "moo-tar",
+        "content": "noi dung",
+        "status": "1",
+        "created_at": "2021-04-14 14:49:23",
+        "updated_at": "2021-04-14 14:55:18"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/page/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a4be3cb59badb10e9ebfc4450d247974 -->
+<!-- START_e5147bba4223857ff7abed11961bfc44 -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/page/delete/est" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/page/delete/est"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove page successfully!",
+    "data": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/page/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e5147bba4223857ff7abed11961bfc44 -->
+<h1>Trang chủ</h1>
+<!-- START_2b349f7f0ce1ce2ae13b3d385ae6e476 -->
+<h2>Trang chủ</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/home?keyword=aperiam&amp;category_id=nesciunt&amp;brand_id=nemo&amp;sort_id=est&amp;sort_price=et" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/home"
+);
+
+let params = {
+    "keyword": "aperiam",
+    "category_id": "nesciunt",
+    "brand_id": "nemo",
+    "sort_id": "est",
+    "sort_price": "et",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Home page",
+    "products": [
+        {
+            "id": 1,
+            "code": "123123",
+            "name": "Xe o t123aaaaaaaaq",
+            "slug": "xe-o-to-1",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/8yZeqjdUq9I0UNLaQxs7cyBqTeRBl6NuECXplMqk.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/AZlrbzjRkmAYa9v5hGKmFgYc2kvRvFw6lPFtsMrm.jpg\",\"\\\/storage\\\/products\\\/7Xmc3ig4PSf8dDyr3ZkjtsuF7klm8dSEKsl4qQSf.jpg\"]",
+            "price": 100000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 05:39:36",
+            "updated_at": "2021-04-14 05:39:36"
+        },
+        {
+            "id": 2,
+            "code": "123123",
+            "name": "Xe o to ngon",
+            "slug": "xe-o-to-2",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/qJEJUKnaPYh9urhTHkhwzPlWdtnDfoQgghXjoXpp.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/gdUi1VzDkAxArwVRN1TYhoPxHvxw7PejM80CY3Rx.jpg\",\"\\\/storage\\\/products\\\/9YpYHPebNX8azYgsRJO0DwlKdGWz8kKI6ytWJxT2.jpg\"]",
+            "price": 100000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 06:01:18",
+            "updated_at": "2021-04-14 06:01:18"
+        },
+        {
+            "id": 4,
+            "code": "123123",
+            "name": "Xe o to ngon -1",
+            "slug": "xe-o-to-3-1",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/F6aSl5EqM94CMcw4pJWCtnYH47sRBnBDhyj3Jr48.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/fKt1hXBu8bMuMTGI7GUNbF8PDOctaSkyPd5OHEb2.jpg\",\"\\\/storage\\\/products\\\/VSr7cnSASCBX0hYqhpjYSLZwq1nF1WUnPavJ1c3g.jpg\"]",
+            "price": 200000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 11:41:07",
+            "updated_at": "2021-04-14 11:41:07"
+        }
+    ],
+    "categories": [
+        {
+            "id": 2,
+            "name": "Xe o t123",
+            "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:04",
+            "updated_at": "2021-04-14 05:45:04",
+            "type": 1
+        },
+        {
+            "id": 3,
+            "name": "Xe o to",
+            "image": "\/storage\/categories\/bbzyVRaSk4RjhcojCOFYh2ImM5mU0uSxg3xyZGhf.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 06:00:33",
+            "updated_at": "2021-04-14 06:00:33",
+            "type": 1
+        },
+        {
+            "id": 4,
+            "name": "Xe o to 1",
+            "image": "\/storage\/categories\/MsMc2QuUJn2EniWodh121sU0tUQTe6zAox1PmdoX.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 07:03:03",
+            "updated_at": "2021-04-14 07:03:03",
+            "type": 1
+        }
+    ],
+    "brands": [
+        {
+            "id": 2,
+            "name": "toyota",
+            "image": "\/storage\/brands\/BzryU2WXxwMCjgPN1dq9ais0jPdXAhrY2leRq975.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:25",
+            "updated_at": "2021-04-14 05:45:25"
+        },
+        {
+            "id": 3,
+            "name": "toyota bad",
+            "image": "\/storage\/brands\/mBqSbnq5JYuKKYO3WRVvqhcxmyjPeFPUttZ4bVuP.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 06:00:48",
+            "updated_at": "2021-04-14 06:00:48"
+        },
+        {
+            "id": 4,
+            "name": "toyota bad",
+            "image": "\/storage\/brands\/p2EzeIykokmUpxtMwxJ56h9K24FhOuRQAGBAc6VU.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 13:27:15",
+            "updated_at": "2021-04-14 13:27:15"
+        }
+    ],
+    "post": [
+        {
+            "id": 3,
+            "name": "Xe o t123aaaas",
+            "slug": "xe-o-to-2",
+            "image": "\/storage\/posts\/IhlEhEA2jRboHbViKp3y8w3MSmgeSpiZcattlXZe.jpg",
+            "description": "description",
+            "content": "content",
+            "views": 1,
+            "status": 1,
+            "created_at": "2021-04-14 14:58:58",
+            "updated_at": "2021-04-14 14:58:58"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/home</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keyword</code></td>
+<td>optional</td>
+<td>Từ khóa tìm kiếm</td>
+</tr>
+<tr>
+<td><code>category_id</code></td>
+<td>optional</td>
+<td>Id chuyên mục</td>
+</tr>
+<tr>
+<td><code>brand_id</code></td>
+<td>optional</td>
+<td>Id thương hiệu</td>
+</tr>
+<tr>
+<td><code>sort_id</code></td>
+<td>optional</td>
+<td>Sắp xếp theo product mới(cũ) nhất</td>
+</tr>
+<tr>
+<td><code>sort_price</code></td>
+<td>optional</td>
+<td>Sắp xếp theo giá tăng(giảm) dần</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2b349f7f0ce1ce2ae13b3d385ae6e476 -->
+<!-- START_c9c2b0a065cdd4441de5bdef5519ca6f -->
+<h2>Bộ lọc</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/home/filter?keyword=voluptatibus&amp;category_id=harum&amp;brand_id=non&amp;sort_id=velit&amp;sort_price=voluptas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/home/filter"
+);
+
+let params = {
+    "keyword": "voluptatibus",
+    "category_id": "harum",
+    "brand_id": "non",
+    "sort_id": "velit",
+    "sort_price": "voluptas",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "List product",
+    "products": [
+        {
+            "id": 1,
+            "code": "123123",
+            "name": "Xe o t123aaaaaaaaq",
+            "slug": "xe-o-to-1",
+            "description": "description",
+            "content": "content",
+            "image": "\/storage\/products\/8yZeqjdUq9I0UNLaQxs7cyBqTeRBl6NuECXplMqk.jpg",
+            "images": "[\"\\\/storage\\\/products\\\/AZlrbzjRkmAYa9v5hGKmFgYc2kvRvFw6lPFtsMrm.jpg\",\"\\\/storage\\\/products\\\/7Xmc3ig4PSf8dDyr3ZkjtsuF7klm8dSEKsl4qQSf.jpg\"]",
+            "price": 100000000,
+            "brand_id": 1,
+            "status": 1,
+            "created_at": "2021-04-14 05:39:36",
+            "updated_at": "2021-04-14 05:39:36"
+        }
+    ],
+    "brands": [
+        {
+            "id": 2,
+            "name": "toyota",
+            "image": "\/storage\/brands\/BzryU2WXxwMCjgPN1dq9ais0jPdXAhrY2leRq975.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 05:45:25",
+            "updated_at": "2021-04-14 05:45:25",
+            "pivot": {
+                "category_id": 2,
+                "brand_id": 2
+            }
+        },
+        {
+            "id": 3,
+            "name": "toyota bad",
+            "image": "\/storage\/brands\/mBqSbnq5JYuKKYO3WRVvqhcxmyjPeFPUttZ4bVuP.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 06:00:48",
+            "updated_at": "2021-04-14 06:00:48",
+            "pivot": {
+                "category_id": 2,
+                "brand_id": 3
+            }
+        },
+        {
+            "id": 4,
+            "name": "toyota bad",
+            "image": "\/storage\/brands\/p2EzeIykokmUpxtMwxJ56h9K24FhOuRQAGBAc6VU.jpg",
+            "status": 1,
+            "created_at": "2021-04-14 13:27:15",
+            "updated_at": "2021-04-14 13:27:15",
+            "pivot": {
+                "category_id": 2,
+                "brand_id": 4
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/home/filter</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keyword</code></td>
+<td>optional</td>
+<td>Từ khóa tìm kiếm</td>
+</tr>
+<tr>
+<td><code>category_id</code></td>
+<td>optional</td>
+<td>Id chuyên mục</td>
+</tr>
+<tr>
+<td><code>brand_id</code></td>
+<td>optional</td>
+<td>Id thương hiệu</td>
+</tr>
+<tr>
+<td><code>sort_id</code></td>
+<td>optional</td>
+<td>Sắp xếp theo product mới(cũ) nhất</td>
+</tr>
+<tr>
+<td><code>sort_price</code></td>
+<td>optional</td>
+<td>Sắp xếp theo giá tăng(giảm) dần</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c9c2b0a065cdd4441de5bdef5519ca6f -->
+<h1>general</h1>
+<!-- START_289a1228199f0ba9c1903a96ca80ed92 -->
+<h2>Xóa</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/brand/delete/placeat" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/brand/delete/placeat"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Remove brand successfully!",
+    "data": true,
+    "categories": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/brand/delete/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_289a1228199f0ba9c1903a96ca80ed92 -->
+<!-- START_e217685fd5f47b21b959e911b73670dc -->
+<h2>Chi tiết</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/post/update/ut" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/post/update/ut"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": true,
+    "msg": "Edit post: Xe o t123aaaaaaaaq",
+    "data": {
+        "id": 1,
+        "name": "Xe o t123aaaaaaaaq",
+        "slug": "xe-o-to-1",
+        "image": "\/storage\/posts\/HopF6CLpBhYl79eYvWSoZ4sf1FRqarmmO0DFHuJl.jpg",
+        "description": "description",
+        "content": "content",
+        "views": 1,
+        "status": 1,
+        "created_at": "2021-04-14 05:36:35",
+        "updated_at": "2021-04-14 05:36:35",
+        "categories": [
+            {
+                "id": 2,
+                "name": "Xe o t123",
+                "image": "\/storage\/categories\/ueLJ9uUlPvUHpZyhJ9wtvCjTGR3vdiR5cWQ0YBuc.jpg",
+                "status": 1,
+                "created_at": "2021-04-14 05:45:04",
+                "updated_at": "2021-04-14 05:45:04",
+                "type": 1,
+                "pivot": {
+                    "post_id": 1,
+                    "category_id": 2
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/post/update/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e217685fd5f47b21b959e911b73670dc -->
+<!-- START_11a59c912a841991391d595f736a5a02 -->
+<h2>api/password/change</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/password/change" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/password/change"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/password/change</code></p>
+<!-- END_11a59c912a841991391d595f736a5a02 -->
+<!-- START_3c520b0ccdbf5100b6f6994368e1b344 -->
+<h2>api/profile</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/profile" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/profile"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": false,
+    "msg": "Xin vui lòng truyền vào token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/profile</code></p>
+<!-- END_3c520b0ccdbf5100b6f6994368e1b344 -->
+<!-- START_a5c6310c3509d478f05f37ef97fbd242 -->
+<h2>api/profile/update</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/profile/update" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/profile/update"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/profile/update</code></p>
+<!-- END_a5c6310c3509d478f05f37ef97fbd242 -->
+<!-- START_00e7e21641f05de650dbe13f242c6f2c -->
+<h2>api/logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": false,
+    "msg": "Xin vui lòng truyền vào token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/logout</code></p>
+<!-- END_00e7e21641f05de650dbe13f242c6f2c -->
+<!-- START_79e313d4e87ca4a9186418aa833ba2ae -->
+<h2>api/confirm-account</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/confirm-account" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/confirm-account"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/confirm-account</code></p>
+<!-- END_79e313d4e87ca4a9186418aa833ba2ae -->
+<!-- START_b7802a3a2092f162a21dc668479801f4 -->
+<h2>api/password/email</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/password/email" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/password/email"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/password/email</code></p>
+<!-- END_b7802a3a2092f162a21dc668479801f4 -->
+<!-- START_8ad860d24dc1cc6dac772d99135ad13e -->
+<h2>api/password/reset</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/api/password/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/password/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/password/reset</code></p>
+<!-- END_8ad860d24dc1cc6dac772d99135ad13e -->
+<!-- START_66e08d3cc8222573018fed49e121e96d -->
+<h2>Show the application&#039;s login form.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET login</code></p>
+<!-- END_66e08d3cc8222573018fed49e121e96d -->
+<!-- START_ba35aa39474cb98cfb31829e70eb8b74 -->
+<h2>Handle a login request to the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST login</code></p>
+<!-- END_ba35aa39474cb98cfb31829e70eb8b74 -->
+<!-- START_e65925f23b9bc6b93d9356895f29f80c -->
+<h2>Log the user out of the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST logout</code></p>
+<!-- END_e65925f23b9bc6b93d9356895f29f80c -->
+<!-- START_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+<h2>Show the application registration form.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET register</code></p>
+<!-- END_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+<!-- START_d7aad7b5ac127700500280d511a3db01 -->
+<h2>Handle a registration request for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST register</code></p>
+<!-- END_d7aad7b5ac127700500280d511a3db01 -->
+<!-- START_d72797bae6d0b1f3a341ebb1f8900441 -->
+<h2>Display the form to request a password reset link.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/password/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/password/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET password/reset</code></p>
+<!-- END_d72797bae6d0b1f3a341ebb1f8900441 -->
+<!-- START_feb40f06a93c80d742181b6ffb6b734e -->
+<h2>Send a reset link to the given user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/password/email" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/password/email"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST password/email</code></p>
+<!-- END_feb40f06a93c80d742181b6ffb6b734e -->
+<!-- START_e1605a6e5ceee9d1aeb7729216635fd7 -->
+<h2>Display the password reset view for the given token.</h2>
+<p>If no token is present, display the link request form.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/password/reset/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/password/reset/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET password/reset/{token}</code></p>
+<!-- END_e1605a6e5ceee9d1aeb7729216635fd7 -->
+<!-- START_cafb407b7a846b31491f97719bb15aef -->
+<h2>Reset the given user&#039;s password.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://127.0.0.1:8000/password/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/password/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST password/reset</code></p>
+<!-- END_cafb407b7a846b31491f97719bb15aef -->
+<!-- START_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<h2>Show the application dashboard.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/home" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/home"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET home</code></p>
+<!-- END_cb859c8e84c35d7133b6a6c8eac253f8 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
