@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
     Route::get('post/data', 'PostController@data')->name('post.data');
+
     Route::resource('post', 'PostController');
 
     Route::get('category/data', 'CategoryController@data')->name('category.data');
@@ -75,6 +76,10 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', 'n
     Route::get('user/change-password', 'UserController@changePassword')->name('user.changePassword');
     Route::post('user/change-password', 'UserController@postChangePassword')->name('user.post.changePassword');
     Route::resource('user', 'UserController');
+
+    /// add
+    
+
 });
 Route::get('/', 'HomeController@index');
 Route::get('/danh-sach-san-pham', 'ProductController@index')->name('product.list');

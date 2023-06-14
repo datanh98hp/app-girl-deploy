@@ -83,6 +83,18 @@ Route::group(['middleware' => 'auth.api_admin'], function () {
         Route::post('update/{id}', 'BankController@postUpdate')->name('bank.update');
         Route::post('delete/{id}', 'BankController@postDelete')->name('bank.delete');
     });
+
+    // 
+
+    Route::group(['namespace' => 'Api', 'prefix' => 'girls'], function () {
+        Route::get('', 'GirlController@getList')->name('product.list');
+        Route::post('add', 'GirlController@postAdd')->name('product.add');
+        Route::get('update/{id}', 'GirlController@getUpdate')->name('product.view.update');
+        Route::post('update/{id}', 'GirlController@postUpdate')->name('product.update');
+        Route::post('delete/{id}', 'GirlController@postDelete')->name('product.delete');
+    });
+
+
 });
 
 
